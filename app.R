@@ -46,9 +46,9 @@ app$callback(
     output('artist_pop_hist_id', 'figure'),
     list(input('artist-id', 'value')),
     function(xcol="Ed Sheeran") {
-        chart <- ggplot2::ggplot(data |> dplyr::filter(track_artist == xcol)) + aes(
+        chart <- ggplot2::ggplot(data %>% dplyr::filter(track_artist == xcol)) + aes(
             x = track_popularity ) + ggplot2::geom_histogram() + ggplot2::geom_vline(
-                data = data |> dplyr::filter(track_artist == xcol),
+                data = data %>% dplyr::filter(track_artist == xcol),
                 aes(xintercept = mean(track_popularity),
                     colour="red")) + ggplot2::labs(
                         x = "Track popularity",
@@ -58,4 +58,4 @@ app$callback(
     }
 )
 
-app$run_server(debug = T)
+app$run_server(host = '0.0.0.0')
