@@ -27,7 +27,7 @@ app$layout(
                             id = 'artist-id',
                             options = artist,
                             # options = data %>% colnames %>% purrr::map(function(col) list(label = col, value = col)),
-                            value = 'artist'
+                            value = 'Ed Sheeran'
                         )
                     )
                 ),
